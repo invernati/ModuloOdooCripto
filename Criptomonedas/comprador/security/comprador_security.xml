@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.module.category" id="comprador.module_category_comprador">
+            <field name="name">Comprador</field>
+            <field name="description">Gestion y asignacion de comprodores</field>
+        </record>
+
+        <record model="res.groups" id="group_comprador_role2">
+            <field name="name">Miner</field>
+            <field name="category_id" ref="comprador.module_category_comprador"/>
+            <field name="comment">Miner</field>
+        </record>
+
+        <record model="res.groups" id="group_comprador_role1">
+            <field name="name">CEO</field>
+            <field name="category_id" ref="comprador.module_category_comprador"/>
+            <field name="comment">CEO</field>
+            <field name="implied_ids" eval="[(4, ref('group_comprador_role2'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+
+
+    </data>
+</odoo>

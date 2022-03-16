@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_reparto_empleado_role1,reparto.empleado.role1,model_reparto_empleado,reparto.group_reparto_role1,1,1,1,1
+access_reparto_empleado_role2,reparto.empleado.role2,model_reparto_empleado,reparto.group_reparto_role2,1,0,0,1
+access_reparto_vehiculo_role1,reparto.empleado.role1,model_reparto_vehiculo,reparto.group_reparto_role1,1,1,1,1
+access_reparto_vehiculo_role2,reparto.empleado.role2,model_reparto_vehiculo,reparto.group_reparto_role2,1,0,0,1

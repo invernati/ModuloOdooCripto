@@ -1,0 +1,220 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="reparto.list">
+      <field name="name">reparto list</field>
+      <field name="model">reparto.reparto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="reparto.action_window">
+      <field name="name">reparto window</field>
+      <field name="res_model">reparto.reparto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="reparto.action_server">
+      <field name="name">reparto server</field>
+      <field name="model_id" ref="model_reparto_reparto"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="reparto" id="reparto.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="reparto.menu_1" parent="reparto.menu_root"/>
+    <menuitem name="Menu 2" id="reparto.menu_2" parent="reparto.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="reparto.menu_1_list" parent="reparto.menu_1"
+              action="reparto.action_window"/>
+    <menuitem name="Server to list" id="reparto" parent="reparto.menu_2"
+              action="reparto.action_server"/>
+-->
+    <!-- VISTA EMPLEADO -->
+    <record model="ir.ui.view" id="reparto.empleado_view">
+        <field name="name">reparto.empleado.view.tree</field>
+        <field name="model">reparto.empleado</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA EMPLEADO</h1>
+                </group>
+              </group>
+                  <group col="2">
+                    <field name="dniEmpleado" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="nombreEmpleado" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="fechaNacimiento" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="direccionEmpleado" style="width:10%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="telefonoEmpleado" style="width:10%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="edad" style="width:10%%"/>
+                  </group>
+              <notebook>
+                <page string="VEHICULOS">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="vehiculo_ids" style="10%"/>
+                  </group>
+                </page>
+                <!--
+                <page string="CLIENTES">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="cliente_ids" style="10%"/>
+                  </group>
+                </page>-->
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="reparto.empleado_list_view">
+      <field name="name">reparto.empleado.view.tree</field>
+      <field name="model">reparto.empleado</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dniEmpleado"/>
+          <field name="nombreEmpleado"/>
+          <field name="fechaNacimiento"/>
+          <field name="direccionEmpleado"/>
+          <field name="telefonoEmpleado"/>
+          <field name="edad"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <!-- VISTA VEHICULO -->
+
+        <record model="ir.ui.view" id="reparto.vehiculo_view">
+        <field name="name">reparto.vehiculo.view.tree</field>
+        <field name="model">reparto.vehiculo</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA VEHICULO</h1>
+                </group>
+              </group>
+                <group col="2">
+                    <field name="idVehiculo" style="width:20%%"/>
+                </group>
+                <group col="2">
+                    <field name="nombreVehiculo" style="width:20%%"/>
+                </group>
+                <group col="2">
+                    <field name="matriculaVehiculo" style="width:20%%"/>
+                </group>
+                <group>
+                    <field name="modeloVehiculo" style="width:10"/>
+                </group>
+                <group col="2">
+                    <field name="tipoVehiculo" style="width:20%%"/>
+                </group>
+              <notebook>
+                <page string="EMPLEADO">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                      <field name="empleado_ids" style="width:100%%"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="reparto.vehiculo_list_view">
+      <field name="name">reparto.vehiculo.view.tree</field>
+      <field name="model">reparto.vehiculo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idVehiculo"/>
+          <field name="nombreVehiculo"/>
+          <field name="matriculaVehiculo"/>
+          <field name="modeloVehiculo"/>
+          <field name="tipoVehiculo"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+    <!-- DEFINICION DE MENU -->
+
+    <record model="ir.actions.act_window" id="reparto.empleado_action_window">
+      <field name="name">Empleado</field>
+      <field name="res_model">reparto.empleado</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="reparto.vehiculo_action_window">
+      <field name="name">Vehiculo</field>
+      <field name="res_model">reparto.vehiculo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="Reparto" id="reparto.menu_root"/>
+
+    <menuitem name="Reparto" id="reparto.menu_root" web_icon="comprador,static/description/icon.png"/>
+
+    <menuitem name="Empleado" id="reparto.empleado_menu" parent="reparto.menu_root" action="reparto.empleado_action_window"/>
+    <menuitem name="Vehiculo" id="reparto.vehiculo_menu" parent="reparto.menu_root" action="reparto.vehiculo_action_window"/>
+
+
+  </data>
+</odoo>

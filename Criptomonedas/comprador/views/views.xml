@@ -1,0 +1,212 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="comprador.list">
+      <field name="name">comprador list</field>
+      <field name="model">comprador.comprador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="comprador.action_window">
+      <field name="name">comprador window</field>
+      <field name="res_model">comprador.comprador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="comprador.action_server">
+      <field name="name">comprador server</field>
+      <field name="model_id" ref="model_comprador_comprador"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="comprador" id="comprador.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="comprador.menu_1" parent="comprador.menu_root"/>
+    <menuitem name="Menu 2" id="comprador.menu_2" parent="comprador.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="comprador.menu_1_list" parent="comprador.menu_1"
+              action="comprador.action_window"/>
+    <menuitem name="Server to list" id="comprador" parent="comprador.menu_2"
+              action="comprador.action_server"/>
+-->
+    <!-- VISTA CLIENTE -->
+    <record model="ir.ui.view" id="comprador.cliente_view">
+        <field name="name">comprador.cliente.view.tree</field>
+        <field name="model">comprador.cliente</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA CLIENTE</h1>
+                </group>
+              </group>
+                  <group col="2">
+                    <field name="dniCliente" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="nombreCliente" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="fechaNacimiento" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="edad" style="width:10%%"/>
+                  </group>
+              <notebook>
+                <page string="EMPLEADO">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="empleado_ids" style="10%"/>
+                  </group>
+                </page>
+                <page string="MONEDA">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="moneda_ids" style="10%"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="comprador.cliente_list_view">
+      <field name="name">comprador.cliente.view.tree</field>
+      <field name="model">comprador.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dniCliente"/>
+          <field name="nombreCliente"/>
+          <field name="fechaNacimiento"/>
+          <field name="edad"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- VISTA MONEDA -->
+
+        <record model="ir.ui.view" id="comprador.moneda_view">
+        <field name="name">comprador.moneda.view.tree</field>
+        <field name="model">comprador.moneda</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA MONEDA</h1>
+                </group>
+              </group>
+                  <group col="2">
+                    <field name="idMoneda" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="nombreMoneda" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="fechaMoneda" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="precioMoneda" style="width:20%%"/>
+                  </group>
+                  <group>
+                    <field name="cantidadMoneda" style="width:10"/>
+                  </group>
+                  <group col="2">
+                    <field name="redMoneda" style="width:20%%"/>
+                  </group>
+              <notebook>
+                <page string="CLIENTES">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="cliente_ids" style="10%"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="comprador.moneda_list_view">
+      <field name="name">comprador.moneda.view.tree</field>
+      <field name="model">comprador.moneda</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idMoneda"/>
+          <field name="nombreMoneda"/>
+          <field name="fechaMoneda"/>
+          <field name="precioMoneda"/>
+          <field name="redMoneda"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+    <!-- DEFINICION DE MENU -->
+
+    <record model="ir.actions.act_window" id="comprador.cliente_action_window">
+      <field name="name">Cliente</field>
+      <field name="res_model">comprador.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="comprador.moneda_action_window">
+      <field name="name">Moneda</field>
+      <field name="res_model">comprador.moneda</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="Comprador" id="comprador.menu_root"/>
+
+    <menuitem name="Comprador" id="comprador.menu_root" web_icon="comprador,static/description/icon.png"/>
+
+    <menuitem name="Cliente" id="comprador.cliente_menu" parent="comprador.menu_root" action="comprador.cliente_action_window"/>
+    <menuitem name="Moneda" id="comprador.moneda_menu" parent="comprador.menu_root" action="comprador.moneda_action_window"/>
+
+  </data>
+</odoo>

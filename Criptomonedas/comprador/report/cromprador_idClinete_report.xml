@@ -1,0 +1,52 @@
+<odoo>
+    <record id="comprador.idCliente_report" model="ir.actions.report">
+        <field name="name">Informe de Cliente</field>
+        <field name="model">comprador.moneda</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">comprador.moneda_report_view</field>
+        <field name="report_file">comprador.moneda_report</field>
+        <field name="binding_model_id" ref="model_comprador_moneda"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="moneda_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="moneda">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Informe de Moneda</h2>
+                        <h3 t-field="moneda.nombreMoneda"></h3>
+                            <table class="table table-sm o_main_table">
+                                  <thead>
+                                      <tr>
+                                          <th>DNI</th>
+                                          <th>Nombre</th>
+                                          <th>Fecha de Nacimiento</th>
+                                          <th>Edad</th>
+                                      </tr>
+                                  </thead>
+                                <tbody>
+                                    <t t-foreach="moneda.cliente_ids" t-as="cliente">
+                                        <tr>
+                                            <td>
+                                                <span t-field="cliente.dniCliente"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="cliente.nombreCliente"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="cliente.fechaNacimiento"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="cliente.edad"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

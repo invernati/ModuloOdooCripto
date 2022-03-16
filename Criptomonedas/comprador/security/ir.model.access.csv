@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_comprador_cliente_role1,comprador.cliente.role1,model_comprador_cliente,comprador.group_comprador_role1,1,1,1,1
+access_comprador_cliente_role2,comprador.comprador.role2,model_comprador_cliente,comprador.group_comprador_role2,1,1,0,1
+access_comprador_moneda_role1,comprador.moneda.role1,model_comprador_moneda,comprador.group_comprador_role1,1,1,1,1
+access_comprador_moneda_role2,comprador.moneda.role2,model_comprador_moneda,comprador.group_comprador_role2,1,0,0,1
